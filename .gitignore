@@ -1,0 +1,39 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+
+# Models
+models/
+*.pkl
+
+# Logs
+logs/
+*.log
+
+# Downloads
+downloads/
+
+# Node
+node_modules/
+dashboard/dist/
+dashboard/.vite/
+
+# Env
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

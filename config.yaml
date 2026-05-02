@@ -1,0 +1,64 @@
+torrent:
+  max_peers: 50
+  max_connections: 200
+  piece_size: 262144        # 256 KB default
+  connection_timeout: 30    # seconds
+  request_timeout: 60
+  max_piece_retries: 3
+
+tracker:
+  announce_interval: 1800   # 30 min
+  compact: true
+  num_want: 80
+
+dht:
+  port: 6881
+  bucket_size: 8
+  alpha: 3                  # Kademlia concurrency parameter
+  bootstrap_nodes:
+    - ["router.bittorrent.com", 6881]
+    - ["dht.transmissionbt.com", 6881]
+    - ["router.utorrent.com", 6881]
+
+ml:
+  peer_selector:
+    model_path: "models/peer_selector.pkl"
+    top_k: 15
+    min_training_samples: 50
+    retrain_interval: 3600
+  download_optimizer:
+    lookahead_pieces: 20
+    rarity_weight: 0.6
+    speed_weight: 0.4
+  swarm_analyzer:
+    n_clusters: 5
+    update_interval: 60     # seconds
+
+security:
+  trust_threshold: 0.45
+  blacklist_threshold: 0.15
+  max_trust_score: 1.0
+  min_trust_score: 0.0
+  anomaly_contamination: 0.05
+  hash_validation: "strict"
+  max_failures_before_ban: 5
+
+redis:
+  host: "localhost"
+  port: 6379
+  db: 0
+  password: null
+  ttl_peer_reputation: 86400   # 1 day
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins:
+    - "http://localhost:5173"
+    - "http://localhost:3000"
+
+logging:
+  level: "INFO"
+  file: "logs/swyft.log"
+  rotation: "50 MB"
+  retention: "7 days"
