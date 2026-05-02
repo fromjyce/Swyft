@@ -454,7 +454,7 @@ Buffering the entire torrent in RAM is only viable for small files. Swyft pre-al
 **Why Redis for reputation?**
 Peer reputation is valuable across sessions (you don't want to re-learn that a peer is malicious after restarting). Redis provides O(1) lookups, TTL-based expiry, and degrades gracefully to in-memory mode when unavailable.
 
---
+---
 
 ## Contact
 
